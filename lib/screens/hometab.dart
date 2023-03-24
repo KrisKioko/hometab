@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:home_tab/models/chatsusers.dart';
 import 'package:home_tab/screens/chatdetals.dart';
 
@@ -9,7 +10,7 @@ class MyHomeTab extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.lightBlue.shade300,
+        backgroundColor: Color(0xff0F75BC),
         title: Center(
           child: Padding(
             padding: const EdgeInsets.all(16),
@@ -30,7 +31,7 @@ class MyHomeTab extends StatelessWidget {
                     size: 16,
                   ),
                   filled: true,
-                  fillColor: Colors.white,
+                  fillColor: Colors.white.withOpacity(0.5),
                   contentPadding: const EdgeInsets.all(8.0),
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(16),
@@ -59,24 +60,31 @@ class MyHomeTab extends StatelessWidget {
           children: [
             NavigationRail(
               extended: false,
-              destinations: const [
+              destinations: [
                 NavigationRailDestination(
-                  padding: EdgeInsets.only(top: 50),
-                  icon: Icon(Icons.home_filled),
-                  label: Text('Home'),
+                  padding: const EdgeInsets.only(top: 50),
+                  icon: SvgPicture.asset(
+                    'assets/images/Group 55.svg',
+                  ),
+                  label: const Text('Home'),
                 ),
                 NavigationRailDestination(
-                  padding: EdgeInsets.only(top: 50),
-                  icon: Icon(Icons.calendar_month_outlined),
-                  label: Text('Calendar'),
+                  padding: const EdgeInsets.only(top: 50),
+                  icon: SvgPicture.asset(
+                    'assets/images/Group 56.svg',
+
+                  ),
+                  label: const Text('Calendar'),
                 ),
                 NavigationRailDestination(
-                  padding: EdgeInsets.only(top: 50),
-                  icon: Icon(Icons.chat_rounded),
-                  label: Text('Chats'),
+                  padding: const EdgeInsets.only(top: 50),
+                  icon: SvgPicture.asset(
+                    'assets/images/Group 55.svg',
+                  ),
+                  label: const Text('Chats'),
                 ),
               ],
-              selectedIndex: 0,
+              selectedIndex: 2,
               onDestinationSelected: (value) {},
             ),
             Container(
@@ -87,7 +95,7 @@ class MyHomeTab extends StatelessWidget {
                   color: Colors.grey.withOpacity(0.3),
                   width: 2,
                   style: BorderStyle.solid,
-                  strokeAlign: BorderSide.strokeAlignOutside,
+                  /* strokeAlign: BorderSide.strokeAlignOutside, */
                 ),
               ),
               alignment: Alignment.topLeft,
@@ -118,13 +126,20 @@ class MyHomeTab extends StatelessWidget {
                           color: Colors.grey.withOpacity(0.2),
                           width: 2,
                           style: BorderStyle.solid,
-                          strokeAlign: BorderSide.strokeAlignOutside,
+                          /* strokeAlign: BorderSide.strokeAlignOutside, */
                         ),
                       ),
-                      child: SizedBox(
-                        width: MediaQuery.of(context).size.width,
+                      child: ListTile(
+                        title: Text('Hon. Babu Owino'),
+                        leading: CircleAvatar(),
+                        subtitle: Text('Phasellus vitae magna varius'),
+                        trailing: Text(
+                          '1.55 AM',
+                          style: Theme.of(context).textTheme.bodySmall,
+                          ),
+                        /* width: MediaQuery.of(context).size.width,
                         height: MediaQuery.of(context).size.height,
-                        child: const ChatPage(),
+                        child: const ChatPage(), */
                       ),
                     ),
                   ],
@@ -137,7 +152,7 @@ class MyHomeTab extends StatelessWidget {
                   color: Colors.grey.withOpacity(0.2),
                   width: 2,
                   style: BorderStyle.solid,
-                  strokeAlign: BorderSide.strokeAlignOutside,
+                  /* strokeAlign: BorderSide.strokeAlignOutside, */
                 ),
               ),
             ),
