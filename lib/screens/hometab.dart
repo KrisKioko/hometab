@@ -78,36 +78,43 @@ class MyHomeTab extends StatelessWidget {
               ),
               alignment: Alignment.topLeft,
               padding: const EdgeInsets.only(left: 5),
-              child: Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: const [
-                      Text(
-                        'Chats',
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: const [
+                        Text(
+                          'Chats',
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        Icon(
+                          Icons.filter_alt_rounded,
+                          size: 20,
+                          color: Colors.black,
+                        ),
+                      ],
+                    ),
+                    Container(
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: Colors.grey.withOpacity(0.2),
+                          width: 2,
+                          style: BorderStyle.solid,
+                          strokeAlign: BorderSide.strokeAlignOutside,
                         ),
                       ),
-                      Icon(
-                        Icons.filter_alt_rounded,
-                        size: 20,
-                        color: Colors.black,
-                      ),
-                    ],
-                  ),
-                  Container(
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        color: Colors.grey.withOpacity(0.2),
-                        width: 2,
-                        style: BorderStyle.solid,
-                        strokeAlign: BorderSide.strokeAlignOutside,
+                      child: Column(
+                        children: const [
+                          ChatPage(),
+                        ],
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
             Container(
