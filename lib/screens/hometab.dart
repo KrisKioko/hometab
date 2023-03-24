@@ -9,24 +9,28 @@ class MyHomeTab extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.lightBlue.shade300,
         title: Center(
           child: Padding(
-            padding: EdgeInsets.all(16),
-            child: Container(
+            padding: const EdgeInsets.all(16),
+            child: SizedBox(
               width: 400,
               height: 30,
               child: TextField(
                 decoration: InputDecoration(
                   hintText: 'Search',
                   hintStyle:
-                      TextStyle(color: Colors.greenAccent.shade200, fontSize: 14),
-                  prefixIcon: Icon(
+                      const TextStyle(
+                        color: Colors.black54  ,
+                        fontSize: 14,
+                      ),
+                  prefixIcon: const Icon(
                     Icons.search,
-                    color: Colors.grey.shade500,
+                    color: Colors.black54,
                     size: 16,
                   ),
                   filled: true,
-                  fillColor: Colors.greenAccent.shade100,
+                  fillColor: Colors.white,
                   contentPadding: const EdgeInsets.all(8.0),
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(16),
@@ -120,7 +124,7 @@ class MyHomeTab extends StatelessWidget {
                       child: SizedBox(
                         width: MediaQuery.of(context).size.width,
                         height: MediaQuery.of(context).size.height,
-                        child: ChatPage(),
+                        child: const ChatPage(),
                       ),
                     ),
                   ],
