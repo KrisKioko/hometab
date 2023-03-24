@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:home_tab/screens/hometab.dart';
+import './screens/hometab.dart';
 
 
 void main() {

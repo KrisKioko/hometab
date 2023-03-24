@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:home_tab/models/chatsusers.dart';
+import 'package:flutter_svg/svg.dart';
+// import 'package:home_tab/models/chatsusers.dart';
 
 class MyHomeTab extends StatelessWidget {
   const MyHomeTab({super.key});
@@ -8,22 +9,30 @@ class MyHomeTab extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: TextField(
-          decoration: InputDecoration(
-            hintText: 'Search',
-            hintStyle:
-                TextStyle(color: Colors.greenAccent.shade200, fontSize: 14),
-            prefixIcon: Icon(
-              Icons.search,
-              color: Colors.grey.shade500,
-              size: 16,
-            ),
-            filled: true,
-            fillColor: Colors.greenAccent.shade100,
-            contentPadding: const EdgeInsets.all(8.0),
-            enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(16),
-              borderSide: BorderSide(color: Colors.grey.shade400),
+        // ?added backgroudn color on the navigation bar
+        backgroundColor: const Color(0xff0F75BC),
+        title: Center(
+          child: SizedBox(
+            width: MediaQuery.of(context).size.width * .5,
+            child: TextField(
+              //! ive made a few changes on the input... adhere to the theme and the colors.
+              decoration: InputDecoration(
+                hintText: 'Search',
+                hintStyle:
+                    TextStyle(color: Colors.greenAccent.shade200, fontSize: 14),
+                prefixIcon: Icon(
+                  Icons.search,
+                  color: Colors.grey.shade500,
+                  size: 16,
+                ),
+                filled: true,
+                fillColor: Colors.white.withOpacity(.5),
+                contentPadding: const EdgeInsets.all(8.0),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(16),
+                  borderSide: BorderSide(color: Colors.grey.shade400),
+                ),
+              ),
             ),
           ),
         ),
@@ -45,24 +54,28 @@ class MyHomeTab extends StatelessWidget {
           children: [
             NavigationRail(
               extended: false,
-              destinations: const [
+              destinations: [
                 NavigationRailDestination(
-                  padding: EdgeInsets.only(top: 50),
-                  icon: Icon(Icons.home_filled),
-                  label: Text('Home'),
+                  padding: const EdgeInsets.only(top: 50),
+                  //*!exported svg */
+                  //**
+                  //@TODO export icons here is a sample */
+                  icon: SvgPicture.asset('assets/images/home.svg',
+                      semanticsLabel: 'Acme Logo'),
+                  label: const Text('Home'),
                 ),
-                NavigationRailDestination(
+              const NavigationRailDestination(
                   padding: EdgeInsets.only(top: 50),
                   icon: Icon(Icons.calendar_month_outlined),
                   label: Text('Calendar'),
                 ),
-                NavigationRailDestination(
+               const NavigationRailDestination(
                   padding: EdgeInsets.only(top: 50),
                   icon: Icon(Icons.chat_rounded),
                   label: Text('Chats'),
                 ),
               ],
-              selectedIndex: 0,
+              selectedIndex: 2,
               onDestinationSelected: (value) {},
             ),
             Container(
@@ -73,7 +86,7 @@ class MyHomeTab extends StatelessWidget {
                   color: Colors.grey.withOpacity(0.3),
                   width: 2,
                   style: BorderStyle.solid,
-                  strokeAlign: BorderSide.strokeAlignOutside,
+                  // strokeAlign: BorderSide.strokeAlignOutside,
                 ),
               ),
               alignment: Alignment.topLeft,
@@ -103,8 +116,14 @@ class MyHomeTab extends StatelessWidget {
                         color: Colors.grey.withOpacity(0.2),
                         width: 2,
                         style: BorderStyle.solid,
-                        strokeAlign: BorderSide.strokeAlignOutside,
+                        // strokeAlign: BorderSide.strokeAlignOutside,
                       ),
+                    ),
+                    child: ListTile(
+                      title: Text("Hon. Babu Owino"),
+                      leading: CircleAvatar(),
+                      subtitle: Text('Phasellus vitae magna varius'),
+                      trailing: Text('1:55 AM',style: Theme.of(context).textTheme.caption,),
                     ),
                   ),
                 ],
@@ -116,7 +135,7 @@ class MyHomeTab extends StatelessWidget {
                   color: Colors.grey.withOpacity(0.2),
                   width: 2,
                   style: BorderStyle.solid,
-                  strokeAlign: BorderSide.strokeAlignOutside,
+                  // strokeAlign: BorderSide.strokeAlignOutside,
                 ),
               ),
             ),
