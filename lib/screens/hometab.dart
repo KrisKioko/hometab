@@ -4,13 +4,12 @@ import 'package:home_tab/models/chatsusers.dart';
 import 'package:home_tab/screens/chatdetals.dart';
 
 class MyHomeTab extends StatelessWidget {
-  const MyHomeTab({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xff0F75BC),
+        backgroundColor: const Color(0xff0F75BC),
         title: Center(
           child: Padding(
             padding: const EdgeInsets.all(16),
@@ -130,9 +129,9 @@ class MyHomeTab extends StatelessWidget {
                         ),
                       ),
                       child: ListTile(
-                        title: Text('Hon. Babu Owino'),
-                        leading: CircleAvatar(),
-                        subtitle: Text('Phasellus vitae magna varius'),
+                        title: const Text('Hon. Babu Owino'),
+                        leading: const CircleAvatar(),
+                        subtitle: const Text('Phasellus vitae magna varius'),
                         trailing: Text(
                           '1.55 AM',
                           style: Theme.of(context).textTheme.bodySmall,
