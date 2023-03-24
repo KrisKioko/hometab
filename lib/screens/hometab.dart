@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:home_tab/models/chatsusers.dart';
+import 'package:home_tab/screens/chatdetals.dart';
 
 class MyHomeTab extends StatelessWidget {
   const MyHomeTab({super.key});
@@ -80,7 +81,7 @@ class MyHomeTab extends StatelessWidget {
               padding: const EdgeInsets.only(left: 5),
               child: SingleChildScrollView(
                 child: Column(
-                  children: [
+                  children: <Widget>[
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: const [
@@ -107,10 +108,10 @@ class MyHomeTab extends StatelessWidget {
                           strokeAlign: BorderSide.strokeAlignOutside,
                         ),
                       ),
-                      child: Column(
-                        children: const [
-                          ChatPage(),
-                        ],
+                      child: SizedBox(
+                        width: MediaQuery.of(context).size.width,
+                        height: MediaQuery.of(context).size.height,
+                        child: ChatPage(),
                       ),
                     ),
                   ],
