@@ -9,22 +9,31 @@ class MyHomeTab extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: TextField(
-          decoration: InputDecoration(
-            hintText: 'Search',
-            hintStyle:
-                TextStyle(color: Colors.greenAccent.shade200, fontSize: 14),
-            prefixIcon: Icon(
-              Icons.search,
-              color: Colors.grey.shade500,
-              size: 16,
-            ),
-            filled: true,
-            fillColor: Colors.greenAccent.shade100,
-            contentPadding: const EdgeInsets.all(8.0),
-            enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(16),
-              borderSide: BorderSide(color: Colors.grey.shade400),
+        title: Center(
+          child: Padding(
+            padding: EdgeInsets.all(16),
+            child: Container(
+              width: 400,
+              height: 30,
+              child: TextField(
+                decoration: InputDecoration(
+                  hintText: 'Search',
+                  hintStyle:
+                      TextStyle(color: Colors.greenAccent.shade200, fontSize: 14),
+                  prefixIcon: Icon(
+                    Icons.search,
+                    color: Colors.grey.shade500,
+                    size: 16,
+                  ),
+                  filled: true,
+                  fillColor: Colors.greenAccent.shade100,
+                  contentPadding: const EdgeInsets.all(8.0),
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(16),
+                    borderSide: BorderSide(color: Colors.grey.shade400),
+                  ),
+                ),
+              ),
             ),
           ),
         ),
