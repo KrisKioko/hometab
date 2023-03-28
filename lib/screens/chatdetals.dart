@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 
 import '../models/chatmessage.dart';
 
-class ChatDetails extends StatefulWidget {
+class ChatDetailPage extends StatefulWidget {
   @override
-  State<ChatDetails> createState() => _ChatDetails();
+  State<ChatDetailPage> createState() => _ChatDetailPage();
 }
 
-class _ChatDetails extends State<ChatDetails> {
+class _ChatDetailPage extends State<ChatDetailPage> {
   List<ChatMessage> messages = [
     ChatMessage(
         messageContent:
