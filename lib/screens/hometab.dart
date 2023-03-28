@@ -1,41 +1,36 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:home_tab/models/chatsusers.dart';
-import 'package:home_tab/screens/chatdetals.dart';
+import 'package:flutter_svg/svg.dart';
+// import 'package:home_tab/models/chatsusers.dart';
 
 class MyHomeTab extends StatelessWidget {
+  const MyHomeTab({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        // ?added backgroudn color on the navigation bar
         backgroundColor: const Color(0xff0F75BC),
         title: Center(
-          child: Padding(
-            padding: const EdgeInsets.all(16),
-            child: SizedBox(
-              width: 400,
-              height: 30,
-              child: TextField(
-                decoration: InputDecoration(
-                  hintText: 'Search',
-                  hintStyle:
-                      const TextStyle(
-                        color: Colors.black54  ,
-                        fontSize: 14,
-                      ),
-                  prefixIcon: const Icon(
-                    Icons.search,
-                    color: Colors.black54,
-                    size: 16,
-                  ),
-                  filled: true,
-                  fillColor: Colors.white.withOpacity(0.5),
-                  contentPadding: const EdgeInsets.all(8.0),
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(16),
-                    borderSide: BorderSide(color: Colors.grey.shade400),
-                  ),
+          child: SizedBox(
+            width: MediaQuery.of(context).size.width * .5,
+            child: TextField(
+              //! ive made a few changes on the input... adhere to the theme and the colors.
+              decoration: InputDecoration(
+                hintText: 'Search',
+                hintStyle:
+                    TextStyle(color: Colors.greenAccent.shade200, fontSize: 14),
+                prefixIcon: Icon(
+                  Icons.search,
+                  color: Colors.grey.shade500,
+                  size: 16,
+                ),
+                filled: true,
+                fillColor: Colors.white.withOpacity(.5),
+                contentPadding: const EdgeInsets.all(8.0),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(16),
+                  borderSide: BorderSide(color: Colors.grey.shade400),
                 ),
               ),
             ),
@@ -62,25 +57,22 @@ class MyHomeTab extends StatelessWidget {
               destinations: [
                 NavigationRailDestination(
                   padding: const EdgeInsets.only(top: 50),
-                  icon: SvgPicture.asset(
-                    'assets/images/Group 55.svg',
-                  ),
+                  //*!exported svg */
+                  //**
+                  //@TODO export icons here is a sample */
+                  icon: SvgPicture.asset('assets/images/home.svg',
+                      semanticsLabel: 'Acme Logo'),
                   label: const Text('Home'),
                 ),
-                NavigationRailDestination(
-                  padding: const EdgeInsets.only(top: 50),
-                  icon: SvgPicture.asset(
-                    'assets/images/Group 56.svg',
-
-                  ),
-                  label: const Text('Calendar'),
+              const NavigationRailDestination(
+                  padding: EdgeInsets.only(top: 50),
+                  icon: Icon(Icons.calendar_month_outlined),
+                  label: Text('Calendar'),
                 ),
-                NavigationRailDestination(
-                  padding: const EdgeInsets.only(top: 50),
-                  icon: SvgPicture.asset(
-                    'assets/images/Group 55.svg',
-                  ),
-                  label: const Text('Chats'),
+               const NavigationRailDestination(
+                  padding: EdgeInsets.only(top: 50),
+                  icon: Icon(Icons.chat_rounded),
+                  label: Text('Chats'),
                 ),
               ],
               selectedIndex: 2,
@@ -94,55 +86,47 @@ class MyHomeTab extends StatelessWidget {
                   color: Colors.grey.withOpacity(0.3),
                   width: 2,
                   style: BorderStyle.solid,
-                  /* strokeAlign: BorderSide.strokeAlignOutside, */
+                  // strokeAlign: BorderSide.strokeAlignOutside,
                 ),
               ),
               alignment: Alignment.topLeft,
               padding: const EdgeInsets.only(left: 5),
-              child: SingleChildScrollView(
-                child: Column(
-                  children: <Widget>[
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: const [
-                        Text(
-                          'Chats',
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        Icon(
-                          Icons.filter_alt_rounded,
-                          size: 20,
-                          color: Colors.black,
-                        ),
-                      ],
-                    ),
-                    Container(
-                      decoration: BoxDecoration(
-                        border: Border.all(
-                          color: Colors.grey.withOpacity(0.2),
-                          width: 2,
-                          style: BorderStyle.solid,
-                          /* strokeAlign: BorderSide.strokeAlignOutside, */
+              child: Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: const [
+                      Text(
+                        'Chats',
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
-                      child: ListTile(
-                        title: const Text('Hon. Babu Owino'),
-                        leading: const CircleAvatar(),
-                        subtitle: const Text('Phasellus vitae magna varius'),
-                        trailing: Text(
-                          '1.55 AM',
-                          style: Theme.of(context).textTheme.bodySmall,
-                          ),
-                        /* width: MediaQuery.of(context).size.width,
-                        height: MediaQuery.of(context).size.height,
-                        child: const ChatPage(), */
+                      Icon(
+                        Icons.filter_alt_rounded,
+                        size: 20,
+                        color: Colors.black,
+                      ),
+                    ],
+                  ),
+                  Container(
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: Colors.grey.withOpacity(0.2),
+                        width: 2,
+                        style: BorderStyle.solid,
+                        // strokeAlign: BorderSide.strokeAlignOutside,
                       ),
                     ),
-                  ],
-                ),
+                    child: ListTile(
+                      title: Text("Hon. Babu Owino"),
+                      leading: CircleAvatar(),
+                      subtitle: Text('Phasellus vitae magna varius'),
+                      trailing: Text('1:55 AM',style: Theme.of(context).textTheme.caption,),
+                    ),
+                  ),
+                ],
               ),
             ),
             Container(
@@ -151,7 +135,7 @@ class MyHomeTab extends StatelessWidget {
                   color: Colors.grey.withOpacity(0.2),
                   width: 2,
                   style: BorderStyle.solid,
-                  /* strokeAlign: BorderSide.strokeAlignOutside, */
+                  // strokeAlign: BorderSide.strokeAlignOutside,
                 ),
               ),
             ),

@@ -35,7 +35,7 @@ class _ConversationList extends State<ConversationList> {
       onTap: () {
         Navigator.push(context, MaterialPageRoute(
           builder: (context) {
-            return ChatDetails();
+            return ChatDetailPage();
           }
           ),
         );

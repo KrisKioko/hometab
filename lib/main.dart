@@ -8,7 +8,7 @@ void main() {
       useMaterial3: true,
       colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueGrey.shade300),
     ),
-    home: MyHomeTab(),
+    home: const MyHomeTab(),
   ),);
 }
 
