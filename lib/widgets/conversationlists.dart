@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+
 import '../screens/chatdetals.dart';
+
 
 
 
@@ -35,7 +37,7 @@ class _ConversationList extends State<ConversationList> {
       onTap: () {
         Navigator.push(context, MaterialPageRoute(
           builder: (context) {
-            return ChatDetailPage();
+            return ChatDetails();
           }
           ),
         );

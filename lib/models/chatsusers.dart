@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../widgets/conversationlists.dart';
-// import 'package:home_tab/widgets/conversationlists.dart';
+
 
 
 
@@ -26,7 +26,7 @@ class ChatPage extends StatefulWidget {
   State<ChatPage> createState() => _ChatPage();
 }
 
-
+//list of contact messages
 class _ChatPage extends State<ChatPage> {
   final List<ChatUsers> chatUsers = [
     ChatUsers(name: 'Babu Owino', message: 'Phasellus vitae magna varius', image: 'assets/images/avatar.png', time: '1.55AM'),

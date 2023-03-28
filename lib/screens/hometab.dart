@@ -1,36 +1,71 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-// import 'package:home_tab/models/chatsusers.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
+import '../components/settingListtile.dart';
+import 'chatdetals.dart';
+
+// ignore: use_key_in_widget_constructors
 class MyHomeTab extends StatelessWidget {
-  const MyHomeTab({super.key});
+
+  //list of messages
+  List<ChatMessage> messages = [
+    ChatMessage(
+        messageContent:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+        messageType: 'receiver'),
+    ChatMessage(
+        messageContent:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+        messageType: 'sender'),
+    ChatMessage(
+        messageContent:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+        messageType: 'sender'),
+    ChatMessage(
+        messageContent:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+        messageType: 'receiver'),
+    ChatMessage(
+        messageContent:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+        messageType: 'receiver'),
+    ChatMessage(
+        messageContent:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+        messageType: 'Sender'),
+  ];
+
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        // ?added backgroudn color on the navigation bar
-        backgroundColor: const Color(0xff0F75BC),
+        backgroundColor: Colors.lightBlue,
         title: Center(
-          child: SizedBox(
-            width: MediaQuery.of(context).size.width * .5,
-            child: TextField(
-              //! ive made a few changes on the input... adhere to the theme and the colors.
-              decoration: InputDecoration(
-                hintText: 'Search',
-                hintStyle:
-                    TextStyle(color: Colors.greenAccent.shade200, fontSize: 14),
-                prefixIcon: Icon(
-                  Icons.search,
-                  color: Colors.grey.shade500,
-                  size: 16,
-                ),
-                filled: true,
-                fillColor: Colors.white.withOpacity(.5),
-                contentPadding: const EdgeInsets.all(8.0),
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(16),
-                  borderSide: BorderSide(color: Colors.grey.shade400),
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: SizedBox(
+              width: 400,
+              height: 30,
+              child: TextField(
+                decoration: InputDecoration(
+                  hintText: 'Search',
+                  hintStyle: const TextStyle(
+                    color: Colors.black54,
+                    fontSize: 14,
+                  ),
+                  prefixIcon: const Icon(
+                    Icons.search,
+                    color: Colors.black54,
+                    size: 16,
+                  ),
+                  filled: true,
+                  fillColor: Colors.grey.shade100,
+                  contentPadding: const EdgeInsets.all(8),
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(20),
+                    borderSide: BorderSide(color: Colors.grey.shade100),
+                  ),
                 ),
               ),
             ),
@@ -44,103 +79,292 @@ class MyHomeTab extends StatelessWidget {
               backgroundImage: AssetImage('assets/images/avatar.png'),
               maxRadius: 30,
             ),
-          )
+          ),
         ],
       ),
       body: SafeArea(
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            NavigationRail(
-              extended: false,
-              destinations: [
-                NavigationRailDestination(
-                  padding: const EdgeInsets.only(top: 50),
-                  //*!exported svg */
-                  //**
-                  //@TODO export icons here is a sample */
-                  icon: SvgPicture.asset('assets/images/home.svg',
-                      semanticsLabel: 'Acme Logo'),
-                  label: const Text('Home'),
-                ),
-              const NavigationRailDestination(
-                  padding: EdgeInsets.only(top: 50),
-                  icon: Icon(Icons.calendar_month_outlined),
-                  label: Text('Calendar'),
-                ),
-               const NavigationRailDestination(
-                  padding: EdgeInsets.only(top: 50),
-                  icon: Icon(Icons.chat_rounded),
-                  label: Text('Chats'),
-                ),
-              ],
-              selectedIndex: 2,
-              onDestinationSelected: (value) {},
-            ),
-            Container(
-              width: MediaQuery.of(context).size.width * 0.40,
-              height: MediaQuery.of(context).size.height,
-              decoration: BoxDecoration(
-                border: Border.all(
-                  color: Colors.grey.withOpacity(0.3),
-                  width: 2,
-                  style: BorderStyle.solid,
-                  // strokeAlign: BorderSide.strokeAlignOutside,
-                ),
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              NavigationRail(
+                extended: false,
+                destinations: [
+                  NavigationRailDestination(
+                    padding: const EdgeInsets.only(top: 50),
+                    icon: SvgPicture.asset(
+                      'assets/images/Group 55.svg',
+                    ),
+                    label: const Text('Home'),
+                  ),
+                  NavigationRailDestination(
+                    padding: const EdgeInsets.only(top: 50),
+                    icon: SvgPicture.asset(
+                      'assets/images/Group 56.svg',
+                    ),
+                    label: const Text('Calendar'),
+                  ),
+                  NavigationRailDestination(
+                    padding: const EdgeInsets.only(top: 50),
+                    icon: SvgPicture.asset(
+                      'assets/images/Group 55.svg',
+                    ),
+                    label: const Text('Chats'),
+                  ),
+                ],
+                selectedIndex: 2,
+                onDestinationSelected: (value) {},
               ),
-              alignment: Alignment.topLeft,
-              padding: const EdgeInsets.only(left: 5),
-              child: Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: const [
-                      Text(
-                        'Chats',
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                        ),
+              Container(
+                width: MediaQuery.of(context).size.width * 0.35,
+                height: MediaQuery.of(context).size.height,
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: Colors.grey.withOpacity(0.3),
+                    width: 2,
+                    style: BorderStyle.solid,
+                  ),
+                ),
+                alignment: Alignment.topLeft,
+                padding: const EdgeInsets.only(left: 5),
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          const Text(
+                            'Chats',
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w400,
+                            ),
+                          ),
+                          IconButton(
+                            icon: SvgPicture.asset('assets/images/filter.svg'),
+                            color: Colors.black,
+                            onPressed: () {},
+                          ),
+                        ],
                       ),
-                      Icon(
-                        Icons.filter_alt_rounded,
-                        size: 20,
-                        color: Colors.black,
+                      const Divider(),
+                      messagesListTile(
+                        context: context,
+                        title: 'Hon. Babu Owino',
+                        subtitle: 'Phasellus vitae magna varius',
+                        leading: const CircleAvatar(
+                            backgroundImage:
+                                AssetImage('assets/images/avatar.png')),
+                        trailing: '1.55 AM',
+                      ),
+                      messagesListTile(
+                        context: context,
+                        title: 'Health Committee',
+                        subtitle: 'Phasellus vitae magna varius',
+                        leading: const CircleAvatar(
+                            backgroundImage:
+                                AssetImage('assets/images/avatar.png')),
+                        trailing: '10.05 PM',
+                      ),
+                      messagesListTile(
+                        context: context,
+                        title: 'Hon. Wakili Edward',
+                        subtitle: 'Phasellus vitae magna varius',
+                        leading: const CircleAvatar(
+                            backgroundImage:
+                                AssetImage('assets/images/avatar.png')),
+                        trailing: 'Yesterday',
+                      ),
+                      messagesListTile(
+                        context: context,
+                        title: 'Hon. Alice Wambui',
+                        subtitle: 'Phasellus vitae magna varius',
+                        leading: const CircleAvatar(
+                            backgroundImage:
+                                AssetImage('assets/images/avatar.png')),
+                        trailing: 'Yesterday',
+                      ),
+                      messagesListTile(
+                        context: context,
+                        title: 'Hon. David Pkosing',
+                        subtitle: 'Phasellus vitae magna varius',
+                        leading: const CircleAvatar(
+                            backgroundImage:
+                                AssetImage('assets/images/avatar.png')),
+                        trailing: 'Yesterday',
+                      ),
+                      messagesListTile(
+                        context: context,
+                        title: 'Hon. Nelson Koech',
+                        subtitle: 'Phasellus vitae magna varius',
+                        leading: const CircleAvatar(
+                            backgroundImage:
+                                AssetImage('assets/images/avatar.png')),
+                        trailing: 'Yesterday',
+                      ),
+                      messagesListTile(
+                        context: context,
+                        title: 'Hon. Eve Akinyi Obara',
+                        subtitle: 'Phasellus vitae magna varius',
+                        leading: const CircleAvatar(
+                            backgroundImage:
+                                AssetImage('assets/images/avatar.png')),
+                        trailing: '12/14/22',
+                      ),
+                      messagesListTile(
+                        context: context,
+                        title: 'Hon.Babu Owino',
+                        subtitle: 'Phasellus vitae magna varius',
+                        leading: const CircleAvatar(
+                            backgroundImage:
+                                AssetImage('assets/images/avatar.png')),
+                        trailing: '12/14/22',
+                      ),
+                      messagesListTile(
+                        context: context,
+                        title: 'Hon.Babu Owino',
+                        subtitle: 'Phasellus vitae magna varius',
+                        leading: const CircleAvatar(
+                            backgroundImage:
+                                AssetImage('assets/images/avatar.png')),
+                        trailing: '12/14/22',
+                      ),
+                      messagesListTile(
+                        context: context,
+                        title: 'Hon.Babu Owino',
+                        subtitle: 'Phasellus vitae magna varius',
+                        leading: const CircleAvatar(
+                            backgroundImage:
+                                AssetImage('assets/images/avatar.png')),
+                        trailing: '12/14/22',
+                      ),
+                      messagesListTile(
+                        context: context,
+                        title: 'Hon.Babu Owino',
+                        subtitle: 'Phasellus vitae magna varius',
+                        leading: const CircleAvatar(
+                            backgroundImage:
+                                AssetImage('assets/images/avatar.png')),
+                        trailing: '12/14/22',
+                      ),
+                      messagesListTile(
+                        context: context,
+                        title: 'Hon.Babu Owino',
+                        subtitle: 'Phasellus vitae magna varius',
+                        leading: const CircleAvatar(
+                            backgroundImage:
+                                AssetImage('assets/images/avatar.png')),
+                        trailing: '12/14/22',
+                      ),
+                      messagesListTile(
+                        context: context,
+                        title: 'Hon.Babu Owino',
+                        subtitle: 'Phasellus vitae magna varius',
+                        leading: const CircleAvatar(
+                            backgroundImage:
+                                AssetImage('assets/images/avatar.png')),
+                        trailing: '12/14/22',
+                      ),
+                      messagesListTile(
+                        context: context,
+                        title: 'Hon.Babu Owino',
+                        subtitle: 'Phasellus vitae magna varius',
+                        leading: const CircleAvatar(
+                          backgroundImage: AssetImage('assets/images/avatar.png')
+                        ),
+                        trailing: '12/14/22',
                       ),
                     ],
                   ),
-                  Container(
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        color: Colors.grey.withOpacity(0.2),
-                        width: 2,
-                        style: BorderStyle.solid,
-                        // strokeAlign: BorderSide.strokeAlignOutside,
-                      ),
-                    ),
-                    child: ListTile(
-                      title: Text("Hon. Babu Owino"),
-                      leading: CircleAvatar(),
-                      subtitle: Text('Phasellus vitae magna varius'),
-                      trailing: Text('1:55 AM',style: Theme.of(context).textTheme.caption,),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Container(
-              decoration: BoxDecoration(
-                border: Border.all(
-                  color: Colors.grey.withOpacity(0.2),
-                  width: 2,
-                  style: BorderStyle.solid,
-                  // strokeAlign: BorderSide.strokeAlignOutside,
                 ),
               ),
-            ),
-          ],
-        ),
+              Container(
+                width: MediaQuery.of(context).size.width * 0.54,
+                height: MediaQuery.of(context).size.height,
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: Colors.grey.withOpacity(0.3),
+                    width: 2,
+                    style: BorderStyle.solid,
+                  ),
+                ),
+                alignment: Alignment.topLeft,
+                padding: const EdgeInsets.only(left: 5),
+                child: SingleChildScrollView(
+                  child: Stack(
+                    children: [
+                      ListView.builder(
+                        itemCount: messages.length,
+                        shrinkWrap: true,
+                        padding: const EdgeInsets.only(top: 10, bottom: 10),
+                        physics: const NeverScrollableScrollPhysics(),
+                        itemBuilder: (context, index) {
+                          return Container(
+                            padding: const EdgeInsets.only(
+                                left: 16, right: 16, top: 10, bottom: 10),
+                            child: Align(
+                              alignment: (messages[index].messageType == 'receiver' ? Alignment.topLeft : Alignment.topRight),
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(20),
+                                  color: (messages[index].messageType == 'receiver' ? Colors.grey.shade200 : Colors.blue.shade200),
+                                ),
+                                padding: const EdgeInsets.all(16),
+                                child: Text(
+                                  messages[index].messageContent,
+                                  style: const TextStyle(
+                                    fontSize: 15,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                      Align(
+                        alignment: Alignment.bottomLeft,
+                        child: Container(
+                          padding: const EdgeInsets.only(left: 10, bottom: 10, top: 10),
+                          height: 60,
+                          width: double.infinity,
+                          color: Colors.white,
+                          child: Row(
+                            children: [
+                              const SizedBox(width: 15),
+
+                              const Expanded(
+                                child: TextField(
+                                  decoration: InputDecoration(
+                                    hintText: 'Type a message',
+                                    hintStyle: TextStyle(
+                                      color: Colors.black54,
+                                    ),
+                                    border: InputBorder.none,
+                                  ),
+                                ),
+                              ),
+
+                              const SizedBox(width: 15),
+
+                              FloatingActionButton(
+                                onPressed: () {},
+                                backgroundColor: Colors.white54,
+                                elevation: 0,
+                                child: const Icon(
+                                  Icons.telegram_rounded,
+                                  color: Colors.lightBlue,
+                                  size: 30,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ]),
       ),
     );
   }
